@@ -1,5 +1,11 @@
 .DS_Store
 
+# renpy
+*.rpy[bc]
+saves/
+DRIFT/tmp/
+DRIFT/log.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
