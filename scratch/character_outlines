@@ -1,0 +1,33 @@
+Protagonist: F1, Racer-sempai?  Helmet and jumpsuit, vague
+
+Other racers: (Name, car, general description, interaction behavior, response to disposition)
+ - Shiny and Chrome
+    - Drive a V8 interceptor
+    - Sort-of-heroes in a world that does not reward heroism
+    - Armed and dangerous - will cause significant damage if you pick a fight
+    - Won't intiate aggression on their own - player has to attack first; not particularly friendly to friendly players
+ - Princess Cherry Carter
+    - Drives a souped-up go kart, made competitive with her vast wealth
+    - Iron fist in a silk glove
+    - Can use Mario Kart-style items for positional advantage in interactions
+    - Ruthless, even to friendly players (but nicer about it)
+ - Nicolas Cage
+    - Drives a sweet bike
+    - Is Nicolas Cage
+    - Bike gives maneuverability in interactions?  Generally unpredictable
+    - Random behavior regardless of disposition
+ - Tanaka (Tanaka-san)
+    - Drives a "performance-tuned" Prius (read: massive spoiler and muffler)
+    - Big buff guy; serious street racer, straight man and butt of jokes
+    - Skilled driver
+    - Mirrors disposition
+ - Driver
+    - Drives a school bus; might actually be the bus?
+    - Never leaves vehicle, which appears to have passengers; vaguely menacing; probably insane
+    - Abuses bulkiness of bus to make up for lack of maneuverability
+    - Aggressive regardless of disposition
+ - Cornelius Vandergraaf
+    - Drives a blue Detroit Electric
+    - Wealthy industrialist, believes in 'fair play' following rules, but within those rules anything goes
+    - Surprisingly agile for such an old car
+    - Non-aggressive, even to unfriendly players (but that doesn't mean *nice*)
