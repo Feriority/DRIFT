@@ -1,0 +1,39 @@
+Mon Sep 28 22:43:55 2015
+Linux-3.19.0-26-generic-x86_64-with-Ubuntu-15.04-vivid
+Ren'Py 6.99.7.739
+Ren'Py Tutorial 6.99 "Here's to the crazy ones."
+
+----
+renpy/common/00gltest.rpy 372
+Predict screen main_menu
+----
+renpy/common/00gltest.rpy 372
+Predict screen main_menu
+Added <'Image' u'images/concert2.jpg'> (11.95%)
+Total Miss <'Image' '_roundrect/rr6g.png'>
+Added <'Twocolor' <'Image' '_roundrect/rr6g.png'> <Color #6496c8ff> <Color #6496c8ff> False> (11.99%)
+----
+renpy/common/_layout/screen_main_menu.rpym 29
+Total Miss <'Image' '_transparent_tile.png'>
+Total Miss <'Tile' <'Image' '_transparent_tile.png'> None>
+Total Miss <'Twocolor' <'Image' '_roundrect/rr6g.png'> <Color #003c78ff> <Color #003c78ff> False>
+Added <'Image' u'images/bg washington.jpg'> (24.72%)
+Predict screen say
+Predict screen load
+Added <'Image' u'images/eileen vhappy.png'> (26.80%)
+Kept <'Twocolor' <'Image' '_roundrect/rr6g.png'> <Color #6496c8ff> <Color #6496c8ff> False>
+Kept <'Twocolor' <'Image' '_roundrect/rr6g.png'> <Color #003c78ff> <Color #003c78ff> False>
+Predict screen preferences
+Added <'Image' u'images/eileen happy.png'> (28.87%)
+Added <'Twocolor' <'Image' '_roundrect/rr6g.png'> <Color #404040ff> <Color #404040ff> False> (28.89%)
+Added <'Twocolor' <'Image' '_roundrect/rr6g.png'> <Color #0050a0ff> <Color #0050a0ff> False> (28.91%)
+Added <'ZipFileImage' '/home/tom/.renpy/tutorial-1/1-1-LT1.save' 'screenshot.png' 1405999614.20363> (28.95%)
+Added <'ZipFileImage' '/home/tom/.renpy/tutorial-1/1-2-LT1.save' 'screenshot.png' 1405999213.8930347> (28.99%)
+Added <'ZipFileImage' '/home/tom/.renpy/tutorial-1/1-3-LT1.save' 'screenshot.png' 1319512532.6097176> (29.04%)
+Added <'ZipFileImage' '/home/tom/.renpy/tutorial-1/1-4-LT1.save' 'screenshot.png' 1319513556.6066308> (29.08%)
+Added <'ZipFileImage' '/home/tom/.renpy/tutorial-1/1-5-LT1.save' 'screenshot.png' 1320015903.9299166> (29.12%)
+Added <'ZipFileImage' '/home/tom/.renpy/tutorial-1/1-6-LT1.save' 'screenshot.png' 1330299307.716001> (29.16%)
+Added <'ZipFileImage' '/home/tom/.renpy/tutorial-1/1-7-LT1.save' 'screenshot.png' 1330299590.0954852> (29.21%)
+Added <'ZipFileImage' '/home/tom/.renpy/tutorial-1/1-8-LT1.save' 'screenshot.png' 1330314338.354572> (29.25%)
+Added <'ZipFileImage' '/home/tom/.renpy/tutorial-1/1-9-LT1.save' 'screenshot.png' 1342745437.9985163> (29.29%)
+Added <'ZipFileImage' '/home/tom/.renpy/tutorial-1/1-10-LT1.save' 'screenshot.png' 1364529702.2747054> (29.34%)
