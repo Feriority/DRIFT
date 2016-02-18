@@ -286,3 +286,5 @@ init -1 python hide:
 
     #########################################
     ## More customizations can go here.
+
+    config.rollback_enabled = False
