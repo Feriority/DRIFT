@@ -3,7 +3,7 @@
 init python:
     def selectEvent():
         return renpy.random.choice([
-            e for e in gamestate.events if e.isValid(gamestate)
+            e for e in gamestate.events if e.isValid()
         ]).label
 
     def nextLoc():

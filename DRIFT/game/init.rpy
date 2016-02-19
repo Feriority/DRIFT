@@ -27,16 +27,16 @@ init python in classes:
             self.label = label
             gamestate.events.append(self)
     
-        def isValid(self, gamestate):
+        def isValid(self):
             return True
     
     # sample events
     class StraightawayEvent(Event):
-        def isValid(self, gamestate):
+        def isValid(self):
             return gamestate.track[gamestate.trackIndex] == 'straightaway'
 
     class TurnEvent(Event):
-        def isValid(self, gamestate):
+        def isValid(self):
             return gamestate.track[gamestate.trackIndex] == 'turn'
 
 init python:
