@@ -35,6 +35,15 @@ init python in gamestate:
     def are_adjacent(racer1, racer2):
         return abs(position_diff(racer1, racer2)) <= 1
 
+    def getRacerAt(position):
+        if position < 0:
+            return None
+
+        if position >= len(standings):
+            return None
+
+        return standings[position]
+
 init python in classes:
     import store.gamestate as gamestate
     # Class defines a single racer character

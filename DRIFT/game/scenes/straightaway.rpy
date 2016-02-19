@@ -9,14 +9,13 @@ label straightaway_1:
 
     "The road stretches straight ahead. None of the other drivers are in your way."
 
-    $ racer_standing = gamestate.standings.index(gamestate.racers['racer'])
+    $ racer_standing = gamestate.racers['racer'].getPosition()
     menu:
         "Speed ahead to again some ground.":
             "You step on the gas and fly down the track."
 
-            $ next_standing = racer_standing - 1
-            if next_standing >= 0:
-                $ racer_ahead = gamestate.standings[next_standing]
+            $ racer_ahead = gamestate.getRacerAt(racer_standing - 1)
+            if racer_ahead is not None:
                 "Along the way, you pass by [racer_ahead.characterName]."
 
             hide racer_sprite with moveoutright
@@ -25,10 +24,8 @@ label straightaway_1:
         "Ease up on the gas.":
             "You slow down and relax for a moment."
 
-            $ prev_standing = racer_standing + 1
-            $ num_racers = len(gamestate.standings)
-            if prev_standing < num_racers:
-                $ racer_behind = gamestate.standings[prev_standing]
+            $ racer_behind = gamestate.getRacerAt(racer_standing + 1)
+            if racer_behind is not None:
                 "[racer_behind.characterName] takes advantage of the moment to pull ahead of you."
 
             hide racer_sprite with moveoutleft
