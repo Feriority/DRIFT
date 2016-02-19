@@ -6,11 +6,8 @@ init 1 python:
 
     BoatDriftEvent("boat_drift")
 
-init:
-    image racer = "racer.png"
-
 label boat_drift:
-    show racer at left with moveinleft
+    show racer_sprite at left with moveinleft
 
     "The road follows the curve of a small lake along the course.  Ahead, you can see a slope down to the water, where a short dock with a raft extends into the lake."
     python:
@@ -40,11 +37,11 @@ label boat_drift:
                 if prev_standing < num_racers:
                     $ racer_behind = gamestate.standings[prev_standing]
                     "[racer_behind.characterName], driving much more aggressively, pulls ahead of you."
-                if success >= 20:
-                    "They can't keep control during a sharp curve, however, and slide offroad into the water with a splash."
-                    $ gamestate.changeStanding(racer_behind.key, 1)
-                else:
-                    $ gamestate.changeStanding('racer', 1)
+                    if success >= 0.20:
+                        "They can't keep control during a sharp curve, however, and slide offroad into the water with a splash."
+                        $ gamestate.changeStanding(racer_behind.key, 1)
+                    else:
+                        $ gamestate.changeStanding('racer', 1)
         "DRIFT!":
             "You drift through a corner... down the slope, across the dock, and onto the raft.  You hit it sideways, and your momentum pushes it out into the water."
             menu:
@@ -56,6 +53,6 @@ label boat_drift:
                     $ gamestate.changeStanding('racer', 2)
                 "DRIFT!":
                     "You hit the brakes and the raft drifts across the lake, with you aboard.  You hit it pretty fast, and cutting through the lake saves you from the long route along its shore - you think you actually gained some time."
-                    show racer at right with moveinleft
+                    show racer_sprite at right with moveinleft
                     $ gamestate.changeStanding('racer', -1)
-    hide racer with moveoutright
+    hide racer_sprite with moveoutright
