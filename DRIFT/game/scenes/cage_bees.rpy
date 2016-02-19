@@ -10,8 +10,8 @@ init 1 python:
         def isValid(self):
             return abs(position_diff()) <= 1
 
-    cage = actors['cage']
-    racer = actors['racer']
+    cage = gamestate.actors['cage']
+    racer = gamestate.actors['racer']
 
 init:
     image racer_sprite = "racer.png"

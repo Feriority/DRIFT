@@ -106,10 +106,10 @@ label meet_tanaka:
         "Nod.":
             #TODO: +disposition
             tanaka "Good.  It's more fun to beat somebody at the top of their game."
-        "Shake your head."
+        "Shake your head.":
             #TODO: -disposition
             tanaka "Then you'd better get ready fast.  The race is about to start."
-        "DRIFT!"
+        "DRIFT!":
             #TODO: -disposition
             hide racer_sprite with moveoutright
             tanaka "Hey, don't just ignore me!"
