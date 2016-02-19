@@ -15,6 +15,8 @@ label start_intro:
     $cornelius = gamestate.actors['cornelius']
     $driver = gamestate.actors['driver']
 
+    #scene music
+    play music "music/intro.mp3" loop
     #scene bg start
     announcer "It's finally time!  The DRIFT Championship trials are about to begin!  The drivers are doing the final checks, and we'll be ready to go soon, folks!"
 
