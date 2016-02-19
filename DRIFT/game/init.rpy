@@ -15,14 +15,14 @@ init python in classes:
     import store.gamestate as gamestate
     # Class defines a single racer character
     class Racer:
-        def __init__(self, characterName='Test'):
+        def __init__(self, characterName='Test', characterKey='Test'):
             self.characterName = characterName
             self.carHealth = 10
             self.disposition = 5
             gamestate.standings.append(self)
             self.actor = renpy.character.Character(characterName)
-            gamestate.racers[characterName] = self
-            gamestate.actors[characterName] = self.actor
+            gamestate.racers[characterKey] = self
+            gamestate.actors[characterKey] = self.actor
     
         def __str__(self):
             return self.characterName
@@ -51,13 +51,38 @@ init python:
     # TODO SECTION: Make actual shit, not mock shit
     # Initalize 7 sample racers
     classes.Racer(characterName='Shiny and Chrome')
-    classes.Racer(characterName='Princess Cherry Carter')
-    classes.Racer(characterName='Nicolas Cage')
-    classes.Racer(characterName='Tanaka')
-    classes.Racer(characterName='Driver')
-    classes.Racer(characterName='Cornelius Vandergraaf')
-    classes.Racer(characterName='Racer')
+    gamestate.actors['shiny'] = renpy.character.Character('Shiny')
+    gamestate.actors['chrome'] = renpy.character.Character('Chrome')
+
+    classes.Racer(characterName='Princess Cherry Carter', characterKey='cherry')
+    classes.Racer(characterName='Nicolas Cage', characterKey='cage')
+    classes.Racer(characterName='Tanaka', characterKey='tanaka')
+    classes.Racer(characterName='Bus Driver', characterKey='driver')
+    classes.Racer(characterName='Cornelius Vandergraaf', characterKey='cornelius')
+    classes.Racer(characterName='Racer', characterKey='racer')
 
     for i in range(0, 5):
         gamestate.track.append('straightaway')
         gamestate.track.append('turn')
+
+
+# Initialize sprites
+init:
+    image racer_sprite = "racer.png"
+
+    image v8_interceptor = "v8_interceptor.png"
+    image shiny_and_chrome_sprite = "shiny_and_chrome.png"
+
+    image gokart = "gokart.png"
+    image cherry_sprite = "cherry.png"
+
+    image bike = "bike.png"
+    image cage_sprite = "cage.png"
+
+    image prius = "prius.png"
+    image tanaka_sprite = "tanaka.png"
+
+    image electric = "electric.png"
+    image cornelius_sprite = "cornelius.png"
+
+    image bus = "bus.png"

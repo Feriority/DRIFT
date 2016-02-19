@@ -3,34 +3,17 @@
 
 init:
     image bg start = "scene_start.png"
-    define announcer = Character('Announcer')
-
-    image racer_sprite = "racer.png"
-    define racer = Character('Racer')
-
-    image v8_interceptor = "v8_interceptor.png"
-    image shiny_and_chrome_sprite = "shiny_and_chrome.png"
-    define shiny = Character('Shiny')
-    define chrome = Character('Chrome')
-
-    image gokart = "gokart.png"
-    image cherry_sprite = "cherry.png"
-    define cherry = Character('Cherry Carter')
-
-    image bike = "bike.png"
-    image cage_sprite = "cage.png"
-    define cage = Character('Nicolas Cage')
-
-    image prius = "prius.png"
-    image tanaka_sprite = "tanaka.png"
-    define tanaka = Character('Tanaka')
-
-    image electric = "electric.png"
-    image cornelius_sprite = "cornelius.png"
-    define cornelius = Character('Cornelius Vandergraaf')
-
 
 label start_intro:
+    $racer = gamestate.actor['racer']
+    $shiny = gamestate.actor['shiny']
+    $chrome = gamestate.actor['chrome']
+    $cherry = gamestate.actor['cherry']
+    $cage = gamestate.actor['cage']
+    $tanaka = gamestate.actor['tanaka']
+    $cornelius = gamestate.actor['cornelius']
+    $driver = gamestate.actor['driver']
+
     scene bg start
     announcer "It's finally time!  The DRIFT Championship trials are about to begin!  The drivers are doing the final checks, and we'll be ready to go soon, folks!"
 
@@ -38,7 +21,7 @@ label start_intro:
     "Now's your chance to check out your competition."
 
     show v8_interceptor at left
-    hero "..."
+    racer "..."
     show shiny_and_chrome_sprite at left with fade
     shiny "Ready."
     chrome "Good.  You drive, I'll shoot?"
@@ -47,9 +30,9 @@ label start_intro:
     menu:
         "Tap on their car.":
             chrome "What?"
-            hero "..."
+            racer "..."
             shiny "..."
-            hero "..."
+            racer "..."
             shiny "Hnh."
             chrome "If you don't have anything to say, leave."
             hide shiny_and_chrome_sprite with moveoutright
@@ -161,10 +144,20 @@ label meet_cornelius:
             hide cornelius_sprite
             with moveoutleft
             show racer_sprite at right
-            jump intro_end
+            jump meet_driver
     hide electric
     hide cornelius_sprite
     with moveoutright
+    jump meet_driver
+
+label meet_driver:
+    show bus at left
+    with moveinleft
+    "... is that a schoolbus?"
+    #TODO content
+    "No time to investigate.  The race is about to start!"
+    hide bus
+    with moveoutleft
     jump intro_end
 
 label intro_end:
