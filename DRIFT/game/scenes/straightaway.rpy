@@ -3,7 +3,6 @@
 
 init 1 python:
     classes.StraightawayEvent("straightaway_1")
-    classes.StraightawayEvent("straightaway_2")
 
 label straightaway_1:
     show racer_sprite at left with moveinleft
