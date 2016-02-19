@@ -31,7 +31,7 @@ label cage_bees:
                 return
             "DRIFT!":
                 "You drift skillfully towards Nicolas Cage."
-                cage "I try not to be proud. I try to actively attack pride."
+                cage "Everything we do impacts someone else's life."
     else:
         # Nic Cage is behind
         show racer_sprite at right with moveinright

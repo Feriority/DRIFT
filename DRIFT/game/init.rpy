@@ -119,6 +119,9 @@ init python:
     classes.Racer(characterName='Tanaka', characterKey='tanaka')
     classes.Racer(characterName='Bus Driver', characterKey='driver')
     classes.Racer(characterName='Cornelius Vandergraaf', characterKey='cornelius')
+
+    # Start racers in random positions
+    renpy.random.shuffle(gamestate.standings)
     classes.Racer(characterName='Racer', characterKey='racer')
 
     for i in range(0, 5):

@@ -159,8 +159,11 @@ label start:
     $ worstPos = len(gamestate.standings)
     if finalPos == 1:
         "YOUR WINNER"
-    elif finalPos == worstPos:
-        "You came in last.  Nicolas Cage is disappointed in you."
     else:
-        "You came in position [finalPos].  Try harder next time."
-    # TODO: call epilogue
+        $ winner = gamestate.standings[0]
+        "Announcer" "We have a winner!  It's [winner]!"
+        call expression 'winner_' + winner.key
+        if finalPos == worstPos:
+            "You came in last.  Nicolas Cage is disappointed in you."
+        else:
+            "You came in position [finalPos]/[worstPos].  Try harder next time."
