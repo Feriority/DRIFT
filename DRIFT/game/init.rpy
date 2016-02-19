@@ -110,7 +110,7 @@ init python:
     
     # TODO SECTION: Make actual shit, not mock shit
     # Initalize 7 sample racers
-    classes.Racer(characterName='Shiny and Chrome')
+    classes.Racer(characterName='Shiny and Chrome', characterKey='shinychrome')
     gamestate.actors['shiny'] = renpy.character.Character('Shiny')
     gamestate.actors['chrome'] = renpy.character.Character('Chrome')
 

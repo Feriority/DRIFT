@@ -11,7 +11,6 @@ label turn_1:
 
     python:
         racer_standing = gamestate.racers['racer'].getPosition()
-
         success = renpy.random.random()
 
     menu:

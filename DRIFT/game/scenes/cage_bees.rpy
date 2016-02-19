@@ -15,7 +15,7 @@ label cage_bees:
     $ pos_diff = gamestate.position_diff('cage', 'racer')
     if pos_diff < 0:
         # Nic Cage is ahead
-        show racer_sprite at left
+        show racer_sprite at left with moveinleft
 
         "Nicolas Cage is ahead of you."
         show cage_sprite at right with moveinright
@@ -34,7 +34,7 @@ label cage_bees:
                 cage "I try not to be proud. I try to actively attack pride."
     else:
         # Nic Cage is behind
-        show racer_sprite at right
+        show racer_sprite at right with moveinright
 
         "Nicolas Cage begins approaching from behind."
         show cage_sprite at left with moveinleft
