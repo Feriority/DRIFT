@@ -2,7 +2,7 @@
 # Introduce Racer and the other Drivers, get a few chances to make some early friends and enemies
 
 init:
-    image bg start = "scene_start.png"
+    #image bg start = "scene_start.png"
     define announcer = Character('Announcer')
 
 label start_intro:
@@ -15,7 +15,7 @@ label start_intro:
     $cornelius = gamestate.actors['cornelius']
     $driver = gamestate.actors['driver']
 
-    scene bg start
+    #scene bg start
     announcer "It's finally time!  The DRIFT Championship trials are about to begin!  The drivers are doing the final checks, and we'll be ready to go soon, folks!"
 
     show racer_sprite at right
