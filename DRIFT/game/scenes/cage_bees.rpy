@@ -10,8 +10,8 @@ init 1 python:
         def isValid(self):
             return abs(position_diff()) <= 1
 
-    cage = actors['Nicolas Cage']
-    racer = actors['Racer']
+    cage = actors['cage']
+    racer = actors['racer']
 
 init:
     image racer_sprite = "racer.png"

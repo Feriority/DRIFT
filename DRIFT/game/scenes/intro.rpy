@@ -5,14 +5,14 @@ init:
     image bg start = "scene_start.png"
 
 label start_intro:
-    $racer = gamestate.actor['racer']
-    $shiny = gamestate.actor['shiny']
-    $chrome = gamestate.actor['chrome']
-    $cherry = gamestate.actor['cherry']
-    $cage = gamestate.actor['cage']
-    $tanaka = gamestate.actor['tanaka']
-    $cornelius = gamestate.actor['cornelius']
-    $driver = gamestate.actor['driver']
+    $racer = gamestate.actors['racer']
+    $shiny = gamestate.actors['shiny']
+    $chrome = gamestate.actors['chrome']
+    $cherry = gamestate.actors['cherry']
+    $cage = gamestate.actors['cage']
+    $tanaka = gamestate.actors['tanaka']
+    $cornelius = gamestate.actors['cornelius']
+    $driver = gamestate.actors['driver']
 
     scene bg start
     announcer "It's finally time!  The DRIFT Championship trials are about to begin!  The drivers are doing the final checks, and we'll be ready to go soon, folks!"
