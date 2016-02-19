@@ -176,6 +176,8 @@ label meet_driver:
     driver "Quit staring.  We've got a RACE ahead!"
     "You're pretty sure that bus is full of people!"
     driver "This is going to be fuuuuun."
+    "The passengers are banging on the door and windows, but you can't see them clearly through the dark glass."
+    driver "QUIET DOWN BACK THERE!  Don't make me turn this bus around!"
     "Maybe you should just leave this one alone."
     hide bus
     with moveoutleft

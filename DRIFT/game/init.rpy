@@ -108,7 +108,6 @@ init python in classes:
 init python:
     import store.classes as classes
     
-    # TODO SECTION: Make actual shit, not mock shit
     # Initalize 7 sample racers
     classes.Racer(characterName='Shiny and Chrome', characterKey='shinychrome')
     gamestate.actors['shiny'] = renpy.character.Character('Shiny')
