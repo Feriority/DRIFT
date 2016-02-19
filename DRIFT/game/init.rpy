@@ -51,7 +51,7 @@ init python in classes:
         def __init__(self, characterName='Test', characterKey='Test'):
             self.characterName = characterName
             self.carHealth = 10
-            self.disposition = 5
+            self.disposition = 0
             self.key = characterKey
             gamestate.standings.append(self)
             self.actor = renpy.character.Character(characterName)
@@ -66,6 +66,15 @@ init python in classes:
             myPosition = self.getPosition()
             theirPosition = racer.getPosition()
             gamestate.standings[myPosition], gamestate.standings[theirPosition] = racer, self
+
+        def changeDisposition(self, diff):
+            self.disposition += diff
+
+            if self.disposition > 10:
+                self.disposition = 10
+
+            if self.disposition < -10:
+                self.disposition = -10
 
         def __repr__(self):
             return self.characterName
