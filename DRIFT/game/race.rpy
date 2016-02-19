@@ -1,8 +1,6 @@
 # main race loop
 
 init python:
-    import store.gamestate as gamestate
-    
     def selectEvent():
         return renpy.random.choice([
             e for e in gamestate.events if e.isValid(gamestate)

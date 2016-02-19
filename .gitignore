@@ -8,6 +8,7 @@ lint.txt
 DRIFT/traceback.txt
 renpy-6.99.8-sdk/tutorial/
 renpy-6.99.8-sdk/the_question/
+DRIFT/tmp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
