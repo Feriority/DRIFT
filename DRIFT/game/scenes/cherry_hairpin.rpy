@@ -76,7 +76,7 @@ label cherry_hairpin:
                 hide cherry_sprite
                 hide gokart with vpunch
                 $ gamestate.changeStanding('cherry', 2)
-            elif success >= 0.66:
+            elif success >= 0.33:
                 "You're driving a car.  Cherry is driving a gokart.  The math is not difficult.  Keeping control of your car on a hairpin while ramming someone, however, is.  You both careen off the road and explode."
                 if pos_diff < 0:
                     $ gamestate.changeStanding('racer', -1)
@@ -85,7 +85,7 @@ label cherry_hairpin:
                 hide cherry_sprite
                 hide gokart with vpunch
                 hide racer_sprite with hpunch
-            elif success >= 0.33:
+            else:
                 "You're driving a car.  Cherry is driving a gokart.  The math is not - wait, is that a star?  Why is she glowing random colors?"
                 hide racer_sprite with vpunch
                 "You're not sure WHY your car exploded, but you probably deserved it."
