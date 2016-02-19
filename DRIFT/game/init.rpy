@@ -7,7 +7,7 @@ init python in gamestate:
     standings = [] # standings in the race
     track = [] # list of strings that make up the current track
     trackIndex = 0 # current index in the track
-    events = []
+    events = set()
     racers = {}
     actors = {}
 
@@ -54,19 +54,27 @@ init python in classes:
             return self.characterName
 
     class Event:
+        play_once_only = True
+
         def __init__(self, label):
             self.label = label
-            gamestate.events.append(self)
+            gamestate.events.add(self)
     
         def isValid(self):
             return True
     
     # sample events
     class StraightawayEvent(Event):
+        # Simple events are repeatable
+        play_once_only = False
+
         def isValid(self):
             return gamestate.track[gamestate.trackIndex] == 'straightaway'
 
     class TurnEvent(Event):
+        # Simple events are repeatable
+        play_once_only = False
+
         def isValid(self):
             return gamestate.track[gamestate.trackIndex] == 'turn'
 

@@ -1,7 +1,10 @@
 # Possible event where a straightaway allows a shortcut
 
 init 1 python:
-    classes.TurnEvent("boat_drift")
+    class BoatDriftEvent(classes.TurnEvent):
+        play_once_only = True
+
+    BoatDriftEvent("boat_drift")
 
 init:
     image racer = "racer.png"

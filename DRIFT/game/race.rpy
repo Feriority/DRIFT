@@ -2,9 +2,12 @@
 
 init python:
     def selectEvent():
-        return renpy.random.choice([
+        event = renpy.random.choice([
             e for e in gamestate.events if e.isValid()
-        ]).label
+        ])
+        if event.play_once_only:
+            gamestate.events.remove(event)
+        return event.label
 
     def nextLoc():
         return True
@@ -34,14 +37,12 @@ label race:
     $ location = gamestate.track[gamestate.trackIndex]
     $ event = selectEvent()
 
-    "Looks like a [event] coming up."
     python:
         if location == 'turn':
             the_fucking_road.events.append('left')
         else:
             the_fucking_road.events.append('straight')
     call expression event
-    "Whew, made it past that one."
 
     python:
         moveRacersAround()
