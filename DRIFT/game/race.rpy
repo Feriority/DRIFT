@@ -1,6 +1,8 @@
 # main race loop
 
 init python:
+    import store.gamestate as gamestate
+    
     def selectEvent():
         return "turn"
 
