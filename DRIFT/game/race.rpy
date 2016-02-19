@@ -34,6 +34,8 @@ init python:
 
 
 label race:
+    show text str(gamestate.standings)
+    
     $ location = gamestate.track[gamestate.trackIndex]
     $ event = selectEvent()
 
