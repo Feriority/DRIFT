@@ -1,10 +1,10 @@
-# turn scene
+# straightaway scene
 # currently this is only an example for testing purposes
 
 init 1 python:
     import store.gamestate as gamestate
-    gamestate.TurnEvent("turn")
+    gamestate.StraightawayEvent("straightaway")
 
-label turn:
-    "On a turn."
+label straightaway:
+    "On a straightaway."
     return

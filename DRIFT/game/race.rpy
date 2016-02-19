@@ -4,13 +4,15 @@ init python:
     import store.gamestate as gamestate
     
     def selectEvent():
-        return "turn"
+        return renpy.random.choice([
+            e for e in gamestate.events if e.isValid(gamestate)
+        ]).label
 
     def nextLoc():
         return True
 
     def raceOver():
-        return renpy.random.choice([False, True])
+        return gamestate.trackIndex >= len(gamestate.track)
 
 label race:
     $ event = selectEvent()
@@ -21,7 +23,9 @@ label race:
 
     python:
         if nextLoc():
-            pass  # TODO: increment location here
+            gamestate.trackIndex += 1
+
             if raceOver():
                 renpy.return_statement()
+
         renpy.jump("race")

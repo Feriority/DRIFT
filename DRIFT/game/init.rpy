@@ -21,19 +21,19 @@ init python in gamestate:
             return self.characterName
     
     class ActionEvent:
-        
         def __init__(self, label):
             self.label = label
             events.append(self)
     
-        def isValid(self, gamestate): pass
+        def isValid(self, gamestate):
+            return True
     
     # sample event
-    class TestEventOne(ActionEvent):
+    class StraightawayEvent(ActionEvent):
         def isValid(self, gamestate):
             return gamestate.track[gamestate.trackIndex] == 'straightaway'
 
-    class TestEventTwo(ActionEvent):
+    class TurnEvent(ActionEvent):
         def isValid(self, gamestate):
             return gamestate.track[gamestate.trackIndex] == 'turn'
     
@@ -45,7 +45,6 @@ init python in gamestate:
     for i in range(0, 5):
         track.append('straightaway')
         track.append('turn')
-
 
 
 init python:
