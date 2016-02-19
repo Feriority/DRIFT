@@ -58,24 +58,23 @@ label meet_cherry:
     menu:
         "Nod.":
             $ gamestate.racers['cherry'].changeDisposition(-1)
-
             jump meet_cherry_end
+
         "Salute.":
             $ gamestate.racers['cherry'].changeDisposition(2)
-
             cherry "There's no need for that.  Out there you are my subjects, but here we're all racers."
             cherry "I haven't seen you before.  Is this your first race?  Watch out for the bus driver."
             jump meet_cherry_end
+
         "Shrug.":
             $ gamestate.racers['cherry'].changeDisposition(-2)
-
             cherry "Cherry Carter?  The princess?  My face is on the money?"
             jump meet_cherry_end
+
         "DRIFT!":
             $ gamestate.racers['cherry'].changeDisposition(-3)
-
             hide racer_sprite with moveoutright
-            cherry "Ignoring my greeting?  I'm going to DESTROY that driver."
+            cherry "Ignoring me?  I'm going to DESTROY that driver."
             hide gokart
             hide cherry_sprite
             with moveoutleft
@@ -83,8 +82,8 @@ label meet_cherry:
             jump meet_cage
 
 label meet_cherry_end:
-    cherry "Nice to meet you, racer.  Good luck!"
-    cherry "Not that luck will be enough to beat me."
+    cherry "Well, it's nice to meet you, racer.  Good luck!"
+    cherry "Not that luck could beat me."
     hide gokart
     hide cherry_sprite
     with moveoutright
@@ -100,9 +99,9 @@ label meet_cage:
     racer "..."
     cage "Why am I, Nicolas Cage, driving a motorcycle in this extremely dangerous race?  Good question."
     "Nicolas Cage (Real Quote)" "When I was eight, I would look at the cover of the 'Ghost Rider' comic book in my little home in Long Beach, California, and I couldn't get my head around how something that scary could also be good. To me it was my first philosophical awakening - 'How is this possible, this duality?'"
-    "Nicolas Cage (Real Quote)" "I think it's no secret that I've tried to take chances in my career and also in my life, and I believe to not live in fear."
+    "Nicolas Cage (Still a Real Quote)" "I think it's no secret that I've tried to take chances in my career and also in my life, and I believe to not live in fear."
     "Nicolas Cage (No, seriously, he said these things)" "One of the things that's interesting to me is I find things like caffeine and stunts actually relax me. When they're putting a bit of gel on my arm and lighting me on fire, or when I'm about to go into a high-speed car chase or rev a motorcycle up pretty fast, I find everything else around me slows down."
-    "Nicolas Cage (And it wasn't even from a movie)" "I am not a demon. I am a lizard, a shark, a heat-seeking panther. I want to be Bob Denver on acid playing the accordion."
+    "Nicolas Cage (And they weren't even from movies)" "I am not a demon. I am a lizard, a shark, a heat-seeking panther. I want to be Bob Denver on acid playing the accordion."
     "He's monologuing so intently he doesn't seem to know you're still there.  You should move on."
     hide bike
     hide cage_sprite
@@ -117,15 +116,15 @@ label meet_tanaka:
     menu:
         "Nod.":
             $ gamestate.racers['tanaka'].changeDisposition(1)
-
-            tanaka "Good.  It's more fun to beat somebody at the top of their game."
+            tanaka "Good.  It's more fun to beat somebody at the top of their game.  When we hit the track I expect you to fly!"
+            tanaka "But not literally.  None of us can do that."
+            tanaka "I'm not a bird."
         "Shake your head.":
             $ gamestate.racers['tanaka'].changeDisposition(-1)
-
-            tanaka "Then you'd better get ready fast.  The race is about to start."
+            tanaka "Then you'd better get ready fast, or you'll take a dove."
+            tanaka "Dive.  A dive.  Uh, The race is about to start."
         "DRIFT!":
             $ gamestate.racers['tanaka'].changeDisposition(-1)
-
             hide racer_sprite with moveoutright
             tanaka "Hey, don't just ignore me!"
             hide prius
@@ -146,16 +145,13 @@ label meet_cornelius:
     menu:
         "Shake his hand.":
             $ gamestate.racers['cornelius'].changeDisposition(2)
-
             cornelius "Let's have a good, clean race out there!"
             cornelius "Don't worry, if you come in second, I'll let you have the prize money.  It's just pennies anyway!  But I get the trophy."
         "Nod.":
             $ gamestate.racers['cornelius'].changeDisposition(1)
-
             cornelius "Driver of few words, eh?  I like that!  If you need a job driving trains after I beat you, let's talk after the race!"
         "DRIFT!":
             $ gamestate.racers['cornelius'].changeDisposition(-2)
-
             hide racer_sprite with moveoutright
             cornelius "How rude."
             hide electric
@@ -163,6 +159,7 @@ label meet_cornelius:
             with moveoutleft
             show racer_sprite at right
             jump meet_driver
+
     hide electric
     hide cornelius_sprite
     with moveoutright

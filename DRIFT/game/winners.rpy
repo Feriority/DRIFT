@@ -30,7 +30,7 @@ label winner_cage:
 label winner_tanaka:
     $ tanaka = gamestate.actors['tanaka']
     show tanaka_sprite with fade
-    tanaka "I won?  Coo.  I mean, cool."
+    tanaka "I won?  Coo.  I mean cool."
     tanaka "I'm not a bird."
     hide tanaka_sprite with fade
     return
