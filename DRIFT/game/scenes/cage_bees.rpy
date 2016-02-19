@@ -1,21 +1,18 @@
 # event when near Nic Cage
 
 init 1 python:
-    def position_diff():
-        cage_index = gamestate.racers['cage'].getPosition()
-        racer_index = gamestate.racers['racer'].getPosition()
-        return cage_index - racer_index
+    import store.gamestate as gamestate
 
     class CageBeesEvent(classes.Event):
         def isValid(self):
-            return abs(position_diff()) <= 1
+            return gamestate.are_adjacent('cage', 'racer')
 
     CageBeesEvent("cage_bees")
 
     cage = gamestate.actors['cage']
 
 label cage_bees:
-    $ pos_diff = position_diff()
+    $ pos_diff = gamestate.position_diff('cage', 'racer')
     if pos_diff < 0:
         # Nic Cage is ahead
         show racer_sprite at left
@@ -85,7 +82,7 @@ label cage_bees_2:
     hide cage_sprite with moveoutleft
     hide racer_sprite with moveoutright
 
-    $ pos_diff = position_diff()
+    $ pos_diff = gamestate.position_diff('cage', 'racer')
     if pos_diff < 0:
         $ gamestate.changeStanding('racer', -1)
 

@@ -27,6 +27,14 @@ init python in gamestate:
 
         standings.insert(new_standing, racer)
 
+    def position_diff(racer1, racer2):
+        racer1_index = racers[racer1].getPosition()
+        racer2_index = racers[racer2].getPosition()
+        return racer1_index - racer2_index
+
+    def are_adjacent(racer1, racer2):
+        return abs(position_diff(racer1, racer2)) <= 1
+
 init python in classes:
     import store.gamestate as gamestate
     # Class defines a single racer character
