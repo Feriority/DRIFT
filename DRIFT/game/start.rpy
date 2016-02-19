@@ -154,4 +154,12 @@ label start:
     $ the_fucking_road.speed = 0.0
 
     "It's over."
+    $ finalPos = gamestate.racers['racer'].getPosition() + 1
+    $ worstPos = len(gamestate.standings)
+    if finalPos == 1:
+        "YOUR WINNER"
+    elif finalPos == worstPos:
+        "You came in last.  Nicolas Cage is disappointed in you."
+    else:
+        "You came in position [finalPos].  Try harder next time."
     # TODO: call epilogue
