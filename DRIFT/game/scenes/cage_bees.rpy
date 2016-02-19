@@ -2,8 +2,8 @@
 
 init 1 python:
     def position_diff():
-        cage_index = gamestate.standings.index(racers['Nicolas Cage'])
-        racer_index = gamestate.standings.index(racers['Racer'])
+        cage_index = gamestate.standings.index(racers['cage'])
+        racer_index = gamestate.standings.index(racers['racer'])
         return cage_index - racer_index
 
     class CageBeesEvent(classes.Event):
