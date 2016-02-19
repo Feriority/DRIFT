@@ -30,6 +30,20 @@ init python:
 
             self.events = []
 
+        def reset(self):
+            self.speed = 0.0
+            self.tick = 0.0
+            self.last_at = 0.0
+            self.rate = 0.0
+
+            self.event_start = 0.0
+            self.start = 0.0
+            self.event_length = 0.0
+            self.destination = 0.0
+            self.event_start = 0.0
+
+            self.events = []
+
         def on_tick(self, index):
             tick_scale = 1.0
             tick_mod = self.tick % tick_scale
@@ -121,6 +135,8 @@ label start:
     show road_surface:
         xalign 0.5
         yalign 0.5
+
+    $ the_fucking_road.reset()
 
     "It was the day of the Race."
     # TODO: call prologue
