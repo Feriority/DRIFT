@@ -31,6 +31,11 @@ label race:
     $ event = selectEvent()
 
     "Looks like a [event] coming up."
+    python:
+        if event == 'turn':
+            the_fucking_road.events.append('left')
+        else:
+            the_fucking_road.events.append('straight')
     call expression event
     "Whew, made it past that one."
 
