@@ -13,7 +13,9 @@ init 1 python:
 label cherry_hairpin:
     show racer_sprite at right with moveinleft
     "You're coming up on a series of sharp turns snaking down a steep hill, followed by a tight hairpin."
-    show cherry_sprite at left with moveinright
+    show gokart at left
+    show cherry_sprite at left
+    with moveinright
     $ pos_diff = gamestate.position_diff('cherry', 'racer')
     if pos_diff < 0:
         # Cherry is in front
@@ -34,6 +36,7 @@ label cherry_hairpin:
                 "You speed into the turns and drive straight off the road, crashing into a tree.  Your car explodes."
                 $ gamestate.changeStanding('racer', 2)
                 hide racer_sprite with vpunch
+                hide gokart
                 hide cherry_sprite
                 with moveoutright
                 return
@@ -41,6 +44,7 @@ label cherry_hairpin:
             if pos_diff < 0:
                 "You carefully maneuver down the slope and through the hairpin.  Nobody passes you, but Princess Cherry skillfully drifts through the curves and increases her lead."
                 hide racer_sprite
+                hide gokart
                 hide cherry_sprite
                 with moveoutright
                 return
@@ -69,7 +73,8 @@ label cherry_hairpin:
             $ success = renpy.random.random()
             if success >= 0.66:
                 "You're driving a car.  Cherry is driving a gokart.  The math is not difficult."
-                hide cherry_sprite with vpunch
+                hide cherry_sprite
+                hide gokart with vpunch
                 $ gamestate.changeStanding('cherry', 2)
             elif success >= 0.66:
                 "You're driving a car.  Cherry is driving a gokart.  The math is not difficult.  Keeping control of your car on a hairpin while ramming someone, however, is.  You both careen off the road and explode."
@@ -77,7 +82,8 @@ label cherry_hairpin:
                     $ gamestate.changeStanding('racer', -1)
                 $ gamestate.changeStanding('cherry', 2)
                 $ gamestate.changeStanding('racer', 2)
-                hide cherry_sprite with vpunch
+                hide cherry_sprite
+                hide gokart with vpunch
                 hide racer_sprite with hpunch
             elif success >= 0.33:
                 "You're driving a car.  Cherry is driving a gokart.  The math is not - wait, is that a star?  Why is she glowing random colors?"
@@ -88,7 +94,8 @@ label cherry_hairpin:
             $ success = renpy.random.random()
             if success >= 0.60:
                 "You two drift around the hairpin, so close your vehicles are almost touching.  Then your car slides and knocks her little gokart off the road.  Whatever the princess is about to say is cut off by the explosion."
-                hide cherry_sprite with vpunch
+                hide cherry_sprite
+                hide gokart with vpunch
                 $ gamestate.changeStanding('cherry', 2)
             elif success >= 0.20:
                 "You two drift around the hairpin, so close your vehicles are almost touching.  Cherry takes a bite out of a massive mushroom, but as she boosts ahead, her gokart bounces off your car on the outside of the turn, and she loses her speed trying to hold position."
@@ -99,5 +106,6 @@ label cherry_hairpin:
             if pos_diff > 0:
                 $ gamestate.changeStanding('racer', 1)
     hide racer_sprite
+    hide gokart
     hide cherry_sprite
     with moveoutright
