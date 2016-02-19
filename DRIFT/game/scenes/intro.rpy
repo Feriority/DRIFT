@@ -18,12 +18,12 @@ label start_intro:
     #scene bg start
     announcer "It's finally time!  The DRIFT Championship trials are about to begin!  The drivers are doing the final checks, and we'll be ready to go soon, folks!"
 
-    show racer_sprite at right
+    show racer_sprite at right with moveinright
     "Now's your chance to check out your competition."
 
-    show v8_interceptor at left
+    show v8_interceptor at left with moveinleft
     racer "..."
-    show shiny_and_chrome_sprite at left with fade
+    show shiny_and_chrome_sprite at left with moveinleft
     shiny "Ready."
     chrome "Good.  You drive, I'll shoot?"
     shiny "Hnh."
@@ -36,10 +36,14 @@ label start_intro:
             racer "..."
             shiny "Hnh."
             chrome "If you don't have anything to say, leave."
-            hide shiny_and_chrome_sprite with moveoutright
+            hide v8_interceptor
+            hide shiny_and_chrome_sprite
+            with moveoutright
         "DRIFT!":
             hide racer_sprite with moveoutright
-            hide shiny_and_chrome_sprite with moveoutleft
+            hide shiny_and_chrome_sprite
+            hide v8_interceptor
+            with moveoutright
             show racer_sprite at right
     jump meet_cherry
 
@@ -80,8 +84,8 @@ label meet_cherry_end:
     jump meet_cage
 
 label meet_cage:
-    show bike
-    show cage_sprite
+    show bike at left
+    show cage_sprite at left
     with moveinleft
     cage "Oh, a fan!  Here, let me sign you an autograph."
     racer "..."
