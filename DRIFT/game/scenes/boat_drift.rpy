@@ -17,6 +17,7 @@ label boat_drift:
     menu:
         "Drive fast.":
             if success >= 0.70:
+                $ racer_standing = gamestate.racers['racer'].getPosition()
                 $ next_standing = racer_standing - 1
                 if next_standing >= 0:
                     $ racer_ahead = gamestate.standings[next_standing]
