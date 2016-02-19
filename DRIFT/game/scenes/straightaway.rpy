@@ -7,9 +7,14 @@ init 1 python:
 label straightaway_1:
     show racer_sprite at left with moveinleft
 
-    "The road stretches straight ahead. None of the other drivers are in your way."
-
     $ racer_standing = gamestate.racers['racer'].getPosition()
+
+    $ racer_ahead = gamestate.getRacerAt(racer_standing - 1)
+    if racer_ahead is not None:
+        "The road stretches straight ahead. [racer_ahead.characterName] is in front of you."
+    else:
+        "The road stretches straight ahead. None of the other drivers are in your way."
+
     menu:
         "Speed ahead to again some ground.":
             "You step on the gas and fly down the track."
