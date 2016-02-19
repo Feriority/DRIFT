@@ -109,7 +109,6 @@ init python:
     import store.classes as classes
     
     # Initalize 7 sample racers
-    classes.Racer(characterName='Shiny and Chrome', characterKey='shinychrome')
     gamestate.actors['shiny'] = renpy.character.Character('Shiny')
     gamestate.actors['chrome'] = renpy.character.Character('Chrome')
 
@@ -118,9 +117,11 @@ init python:
     classes.Racer(characterName='Tanaka', characterKey='tanaka')
     classes.Racer(characterName='Bus Driver', characterKey='driver')
     classes.Racer(characterName='Cornelius Vandergraaf', characterKey='cornelius')
+    classes.Racer(characterName='Shiny and Chrome', characterKey='shinychrome')
 
     # Start racers in random positions
     renpy.random.shuffle(gamestate.standings)
+
     classes.Racer(characterName='Racer', characterKey='racer')
 
     for i in range(0, 5):
@@ -134,6 +135,8 @@ init:
 
     image v8_interceptor = "v8_interceptor.png"
     image shiny_and_chrome_sprite = "shiny_and_chrome.png"
+    image shiny_sprite = "shiny.png"
+    image chrome_sprite = "chrome.png"
 
     image gokart = "gokart.png"
     image cherry_sprite = "cherry.png"
