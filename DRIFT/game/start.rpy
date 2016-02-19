@@ -92,6 +92,9 @@ init python:
                     return c * t + b
                 self.rate = ease((self.tick - self.event_start) / self.event_length, self.start, self.destination - self.start)
             else:
+                if self.event_length:
+                    self.rate = self.destination
+                    self.event_length = 0
                 # Update curve rate from queued events.
                 if self.events:
                     event = self.events.pop(0)
