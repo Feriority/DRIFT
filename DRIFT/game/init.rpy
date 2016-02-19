@@ -35,6 +35,7 @@ init python in classes:
             self.characterName = characterName
             self.carHealth = 10
             self.disposition = 5
+            self.key = characterKey
             gamestate.standings.append(self)
             self.actor = renpy.character.Character(characterName)
             gamestate.racers[characterKey] = self
