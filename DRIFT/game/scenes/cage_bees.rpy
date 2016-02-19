@@ -2,20 +2,17 @@
 
 init 1 python:
     def position_diff():
-        cage_index = gamestate.standings.index(racers['cage'])
-        racer_index = gamestate.standings.index(racers['racer'])
+        cage_index = gamestate.racers['cage'].getPosition()
+        racer_index = gamestate.racers['racer'].getPosition()
         return cage_index - racer_index
 
     class CageBeesEvent(classes.Event):
         def isValid(self):
             return abs(position_diff()) <= 1
 
-    cage = gamestate.actors['cage']
-    racer = gamestate.actors['racer']
+    CageBeesEvent("cage_bees")
 
-init:
-    image racer_sprite = "racer.png"
-    image cage_sprite = "cage.png"
+    cage = gamestate.actors['cage']
 
 label cage_bees:
     $ pos_diff = position_diff()
@@ -68,6 +65,10 @@ label cage_bees:
             "You leave Cage in your tracks and race forward."
             hide cage_sprite with moveoutleft
             hide racer_sprite with moveoutright
+
+            if pos_diff < 0:
+                $ gamestate.changeStanding('racer', -1)
+
             return
         "DRIFT!":
             "You begin to slide right at Cage."
@@ -78,7 +79,14 @@ label cage_bees_2:
     "He turns to stare you down, but is immediately hit by a beehive hanging from a tree."
     cage "OH, NO! NOT THE BEES! NOT THE BEES! AAAAAHHHHH!"
     cage "OH, THEY'RE IN MY EYES! MY EYES! AAAAHHHHH! AAAAAGGHHH!"
+
     # TODO: Do slight damage to Cage
+
     hide cage_sprite with moveoutleft
     hide racer_sprite with moveoutright
+
+    $ pos_diff = position_diff()
+    if pos_diff < 0:
+        $ gamestate.changeStanding('racer', -1)
+
     return

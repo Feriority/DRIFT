@@ -36,6 +36,7 @@ label straightaway_1:
             $ gamestate.changeStanding('racer', 1)
         "DRIFT!":
             "You drift... straight into the track wall."
+            "It's a straightaway. What did you expect?"
 
             # TODO: Do damage to player's car
 

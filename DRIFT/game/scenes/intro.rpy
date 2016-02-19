@@ -168,3 +168,4 @@ label meet_driver:
 label intro_end:
     announcer "Looks like it's time to start!  We've got an all-star lineup tonight - you don't want to miss it!"
     "The crowd cheers as you hurry back to your car.  It's finally time!"
+    hide racer_sprite with moveoutright
