@@ -3,6 +3,7 @@
 
 init 1 python:
     classes.StraightawayEvent("straightaway_1")
+    classes.StraightawayEvent("straightaway_2")
 
 label straightaway_1:
     show racer_sprite at left with moveinleft
@@ -32,12 +33,26 @@ label straightaway_1:
 
             $ gamestate.changeStanding('racer', 1)
         "DRIFT!":
-            "You drift... straight into the track wall."
-            "It's a straightaway. What did you expect?"
+            $ chance = renpy.random.random()
 
-            # TODO: Do damage to player's car
+            if chance >= 0.50:
+                "You drift... straight into the track wall."
+                "It's a straightaway. What did you expect?"
 
-            hide racer with dissolve
+                # TODO: Do damage to player's car
 
-            $ gamestate.changeStanding('racer', 2)
+                hide racer with dissolve
+
+                $ gamestate.changeStanding('racer', 2)
+            else:
+                "You drift... gently to sleep at the wheel."
+                "The sound of your car scraping against the track wall moments later."
+
+                $ racer_behind = gamestate.getRacerAt(racer_standing + 1)
+                if racer_behind is not None:
+                    "[racer_behind.characterName] passed you while you were napping!"
+
+                hide racer with moveoutleft
+
+                $ gamestate.changeStanding('racer', 1)
     return
