@@ -6,9 +6,12 @@ saves/
 log.txt
 lint.txt
 DRIFT/traceback.txt
+DRIFT/tmp/navigation.json
+DRIFT/errors.txt
 renpy-6.99.8-sdk/tutorial/
 renpy-6.99.8-sdk/the_question/
 DRIFT/tmp/
+renpy-6.99.8-sdk/update/updates.json.sig
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
