@@ -24,9 +24,20 @@ init python in classes:
             gamestate.racers[characterKey] = self
             gamestate.actors[characterKey] = self.actor
     
-        def __str__(self):
+        #get 0 indexed position in race
+        def getPosition(self):
+            for i in range(0, len(gamestate.standings)):
+                if gamestate.standings[i].characterName == self.characterName:
+                    return i
+
+        def swapPositionWith(self, racer):
+            myPosition = self.getPosition()
+            theirPosition = racer.getPosition()
+            gamestate.standings[myPosition], gamestate.standings[theirPosition] = racer, self
+
+        def __repr__(self):
             return self.characterName
-    
+
     class Event:
         def __init__(self, label):
             self.label = label
