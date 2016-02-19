@@ -14,7 +14,9 @@ init python in gamestate:
     def changeStanding(racer, diff):
         if isinstance(racer, basestring):
             racer = racers[racer]
-        racer_standing = standings.index(racer)
+        racer_standing = racer.getPosition()
+
+        standings.pop(racer_standing)
 
         new_standing = racer_standing + diff
         if new_standing < 0:
@@ -24,7 +26,6 @@ init python in gamestate:
             new_standing = len(standings)
 
         standings.insert(new_standing, racer)
-        standings.pop(racer_standing)
 
 init python in classes:
     import store.gamestate as gamestate
@@ -39,11 +40,9 @@ init python in classes:
             gamestate.racers[characterKey] = self
             gamestate.actors[characterKey] = self.actor
     
-        #get 0 indexed position in race
         def getPosition(self):
-            for i in range(0, len(gamestate.standings)):
-                if gamestate.standings[i].characterName == self.characterName:
-                    return i
+            """get 0 indexed position in race"""
+            return gamestate.standings.index(self)
 
         def swapPositionWith(self, racer):
             myPosition = self.getPosition()

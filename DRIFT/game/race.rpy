@@ -1,8 +1,6 @@
 # main race loop
 
 init python:
-    from random import randint
-
     def selectEvent():
         return renpy.random.choice([
             e for e in gamestate.events if e.isValid()
@@ -16,23 +14,29 @@ init python:
 
     def moveRacersAround():
         skipNext = False
-        for i in range(0, len(gamestate.standings)-1):
-            if gamestate.standings[i].characterName == 'main' or gamestate.standings[i+1].characterName == 'main' or skipNext:
+        for i, racer in enumerate(gamestate.standings):
+            if i+1 >= len(gamestate.standings):
+                break
+
+            other_racer = gamestate.standings[i+1]
+            if racer.characterName == 'Racer' or other_racer.characterName == 'Racer' or skipNext:
                 skipNext = False
                 continue
-            passingModifier = 50 - (5 * (gamestate.standings[i].carHealth - gamestate.standings[i+1].carHealth))
+
+            passingModifier = 50 - (5 * (racer.carHealth - other_racer.carHealth))
             # if they have more health than us, increase their chance of passing us
-            if randint(0, 100) < passingModifier:
-                gamestate.standings[i].swapPositionWith(gamestate.standings[i+1])
-                skipNext = True # don't swap the same racer more than once
+            if renpy.random.randint(0, 100) < passingModifier:
+                racer.swapPositionWith(other_racer)
+                skipNext = True  # don't swap the same racer more than once
 
 
 label race:
+    $ location = gamestate.track[gamestate.trackIndex]
     $ event = selectEvent()
 
     "Looks like a [event] coming up."
     python:
-        if event == 'turn':
+        if location == 'turn':
             the_fucking_road.events.append('left')
         else:
             the_fucking_road.events.append('straight')

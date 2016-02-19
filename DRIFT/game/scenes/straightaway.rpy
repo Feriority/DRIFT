@@ -4,11 +4,8 @@
 init 1 python:
     classes.StraightawayEvent("straightaway_1")
 
-init:
-    image racer = "racer.png"
-
 label straightaway_1:
-    show racer at left with moveinleft
+    show racer_sprite at left with moveinleft
 
     "The road stretches straight ahead. None of the other drivers are in your way."
 
@@ -22,7 +19,7 @@ label straightaway_1:
                 $ racer_ahead = gamestate.standings[next_standing]
                 "Along the way, you pass by [racer_ahead.characterName]."
 
-            hide racer with moveoutright
+            hide racer_sprite with moveoutright
 
             $ gamestate.changeStanding('racer', -1)
         "Ease up on the gas.":
@@ -34,7 +31,7 @@ label straightaway_1:
                 $ racer_behind = gamestate.standings[prev_standing]
                 "[racer_behind.characterName] takes advantage of the moment to pull ahead of you."
 
-            hide racer with moveoutleft
+            hide racer_sprite with moveoutleft
 
             $ gamestate.changeStanding('racer', 1)
         "DRIFT!":
