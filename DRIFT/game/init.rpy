@@ -11,6 +11,21 @@ init python in gamestate:
     racers = {}
     actors = {}
 
+    def changeStanding(racer, diff):
+        if isinstance(racer, basestring):
+            racer = racers[racer]
+        racer_standing = standings.index(racer)
+
+        new_standing = racer_standing + diff
+        if new_standing < 0:
+            new_standing = 0
+
+        if new_standing > len(standings):
+            new_standing = len(standings)
+
+        standings.insert(new_standing, racer)
+        standings.pop(racer_standing)
+
 init python in classes:
     import store.gamestate as gamestate
     # Class defines a single racer character
