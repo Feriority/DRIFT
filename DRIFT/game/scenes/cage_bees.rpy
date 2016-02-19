@@ -33,6 +33,7 @@ label cage_bees:
                 "Cage begins snaking back in forth, dodging invisible obstacles, and pulls away laughing."
                 cage "Ahahaha!"
                 hide cage_sprite with moveoutright
+                hide racer_sprite with moveoutleft
                 return
             "DRIFT!":
                 "You drift skillfully towards Nicolas Cage."
