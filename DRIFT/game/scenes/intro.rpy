@@ -3,6 +3,7 @@
 
 init:
     image bg start = "scene_start.png"
+    define announcer = Character('Announcer')
 
 label start_intro:
     $racer = gamestate.actors['racer']
