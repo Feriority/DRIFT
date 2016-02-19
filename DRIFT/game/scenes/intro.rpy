@@ -169,9 +169,12 @@ label meet_cornelius:
 label meet_driver:
     show bus at left
     with moveinleft
-    "... is that a schoolbus?"
-    #TODO content
-    "No time to investigate.  The race is about to start!"
+    driver "Never seen a schoolbus before?"
+    "The voice plays, distorted, over a radio.  The driver hasn't left their bus, or even opened the door."
+    driver "Quit staring.  We've got a RACE ahead!"
+    "You're pretty sure that bus is full of people!"
+    driver "This is going to be fuuuuun."
+    "Maybe you should just leave this one alone."
     hide bus
     with moveoutleft
     jump intro_end
