@@ -3,23 +3,31 @@
 
 init:
     image bg start = "scene_start.png"
+    define announcer = Character('Announcer')
+
     image racer_sprite = "racer.png"
+    define racer = Character('Racer')
 
     image v8_interceptor = "v8_interceptor.png"
     image shiny_and_chrome_sprite = "shiny_and_chrome.png"
+    define shiny = Character('Shiny')
+    define chrome = Character('Chrome')
 
     image gokart = "gokart.png"
     image cherry_sprite = "cherry.png"
+    define cherry = Character('Cherry Carter')
 
     image bike = "bike.png"
     image cage_sprite = "cage.png"
+    define cage = Character('Nicolas Cage')
 
-    define announcer = Character('Announcer')
-    define racer = Character('Racer')
-    define shiny = Character('Shiny')
-    define chrome = Character('Chrome')
-    define cherry = Character('Cherry')
-    define cage = Character('Cage')
+    image prius = "prius.png"
+    image tanaka_sprite = "tanaka.png"
+    define tanaka = Character('Tanaka')
+
+    image electric = "electric.png"
+    image cornelius_sprite = "cornelius.png"
+    define cornelius = Character('Cornelius Vandergraaf')
 
 
 label start_intro:
@@ -38,21 +46,20 @@ label start_intro:
     "They seem to be ignoring you."
     menu:
         "Tap on their car.":
-            jump shiny_and_chrome_intro
+            chrome "What?"
+            hero "..."
+            shiny "..."
+            hero "..."
+            shiny "Hnh."
+            chrome "If you don't have anything to say, leave."
+            hide shiny_and_chrome_sprite with moveoutright
         "DRIFT!":
-            jump meet_cherry
-
-label shiny_and_chrome_intro:
-    chrome "What?"
-    hero "..."
-    shiny "..."
-    hero "..."
-    shiny "Hnh."
-    chrome "If you don't have anything to say, leave."
+            hide racer_sprite with moveoutright
+            hide shiny_and_chrome_sprite with moveoutleft
+            show racer_sprite at right
     jump meet_cherry
 
 label meet_cherry:
-    hide shiny_and_chrome_sprite with moveoutright
     show gokart at left
     show cherry_sprite at left
     with moveinleft
@@ -72,16 +79,23 @@ label meet_cherry:
             jump meet_cherry_end
         "DRIFT!":
             #TODO: Reduce cherry disposition a lot.  She really doesn't like to be ignored.
+            hide racer_sprite with moveoutright
+            cherry "Ignoring my greeting?  I'm going to DESTROY that driver."
+            hide gokart
+            hide cherry_sprite
+            with moveoutleft
+            show racer_sprite at right
             jump meet_cage
 
 label meet_cherry_end:
     cherry "Nice to meet you, racer.  Good luck!"
+    cherry "Not that luck will be enough to beat me."
+    hide gokart
+    hide cherry_sprite
+    with moveoutright
     jump meet_cage
 
 label meet_cage:
-    hide gokart
-    hide cherry
-    with moveoutright
     show bike
     show cage_sprite
     with moveinleft
@@ -95,4 +109,64 @@ label meet_cage:
     cage "One of the things that's interesting to me is I find things like caffeine and stunts actually relax me. When they're putting a bit of gel on my arm and lighting me on fire, or when I'm about to go into a high-speed car chase or rev a motorcycle up pretty fast, I find everything else around me slows down."
     cage "I am not a demon. I am a lizard, a shark, a heat-seeking panther. I want to be Bob Denver on acid playing the accordion."
     "He's monologuing so intently he doesn't seem to know you're still there.  You should move on."
+    hide bike
+    hide cage_sprite
+    with moveoutright
     jump meet_tanaka
+
+label meet_tanaka:
+    show prius at left
+    show tanaka_sprite at left
+    with moveinleft
+    tanaka "A new racer?  I'm Tanaka.  Welcome to DRIFT.  Are you ready?"
+    menu:
+        "Nod.":
+            #TODO: +disposition
+            tanaka "Good.  It's more fun to beat somebody at the top of their game."
+        "Shake your head."
+            #TODO: -disposition
+            tanaka "Then you'd better get ready fast.  The race is about to start."
+        "DRIFT!"
+            #TODO: -disposition
+            hide racer_sprite with moveoutright
+            tanaka "Hey, don't just ignore me!"
+            hide prius
+            hide tanaka_sprite
+            with moveoutleft
+            show racer_sprite at right
+            jump meet_cornelius
+    hide prius
+    hide tanaka_sprite
+    with moveoutright
+    jump meet_cornelius
+
+label meet_cornelius:
+    show electric at left
+    show cornelius_sprite at left
+    with moveinleft
+    cornelius "Ah, a new challenger!  This will be good fun!  I am Cornelius Vandergraaf, of course."
+    menu:
+        "Shake his hand.":
+            #TODO: +disposition
+            cornelius "Let's have a good, clean race out there!"
+            cornelius "Don't worry, if you come in second, I'll let you have the prize money.  It's just pennies anyway!  But I get the trophy."
+        "Nod.":
+            #TODO: +disposition
+            cornelius "Driver of few words, eh?  I like that!  If you need a job driving trains after I beat you, let's talk after the race!"
+        "DRIFT!":
+            #TODO: -disposition
+            hide racer_sprite with moveoutright
+            cornelius "How rude."
+            hide electric
+            hide cornelius_sprite
+            with moveoutleft
+            show racer_sprite at right
+            jump intro_end
+    hide electric
+    hide cornelius_sprite
+    with moveoutright
+    jump intro_end
+
+label intro_end:
+    announcer "Looks like it's time to start!  We've got an all-star lineup tonight - you don't want to miss it!"
+    "The crowd cheers as you hurry back to your car.  It's finally time!"
