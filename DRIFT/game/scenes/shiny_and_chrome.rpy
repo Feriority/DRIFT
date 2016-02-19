@@ -10,7 +10,7 @@ init 1 python:
                 gamestate.racers['shinychrome'].disposition >= 0
             )
 
-    class ShinyChromeAggressiveEvent(classes.Event):
+    class ShinyChromeAggroEvent(classes.Event):
         def isValid(self):
             return (
                 gamestate.are_adjacent('shinychrome', 'racer') and
@@ -18,6 +18,7 @@ init 1 python:
             )
 
     ShinyChromePassiveEvent('shiny_and_chrome_passive')
+    ShinyChromeAggroEvent('shiny_and_chrome_aggro')
 
 label shiny_and_chrome_passive:
     $ pos_diff = gamestate.position_diff('shinychrome', 'racer')
@@ -36,8 +37,7 @@ label shiny_and_chrome_passive:
 
         "They pull up beside you, but don't seem to pay you any notice."
 
-    python:
-        success = renpy.random.random()
+    $ success = renpy.random.random()
 
     menu:
         "Cut them off and get in their way.":
@@ -79,12 +79,113 @@ label shiny_and_chrome_passive:
     # Should never hit this, but just in case
     jump shiny_and_chrome_exit_ahead
 
+label shiny_and_chrome_aggro:
+    $ pos_diff = gamestate.position_diff('shinychrome', 'racer')
+    if pos_diff < 0:
+        # Shiny and Chrome are ahead
+        show racer_sprite at left with moveinleft
+
+        "Shiny and Chrome are out in front of you."
+        show v8_interceptor at right with moveinright
+
+        "Suddenly, they whip their Interceptor around and start driving at you head on!"
+
+        show chrome_sprite at right with moveinbottom
+    else:
+        # Shiny and Chrome are behind
+        show racer_sprite at right with moveinright
+
+        "An engine roar fills you ears right before your entire car shakes."
+        with hpunch
+
+        # TODO: Do damage to player's car
+
+        "Shiny and Chrome just rammed you!"
+        show v8_interceptor at left with moveinleft
+
+        "Looks like they're setting up to do it again!"
+
+        show chrome_sprite at left with moveinbottom
+
+    "Chrome climbs out of the passenger side window holding a spear with a metal capsule at the end."
+    gamestate.actors['chrome'] "Witness me!"
+
+    menu:
+        "Witness her.":
+            "You don't move an inch, transfixed by Chrome and her spear."
+            jump shiny_and_chrome_speared
+        "Attmept to dodge.":
+            "You swerve to avoid the impending danger."
+            "Shiny and Chrome anticipated this, however, and they correct their course just in time."
+            jump shiny_and_chrome_speared
+        "Slam on the brakes.":
+            "The tires on your car smoke and screech, and you lurch forward in your seat."
+            "Shiny and Chrome falter, not expecting such a move, and drive past your car instead of into it."
+            "Chrome stabs the spear at your car. There's an explosion, but you come out unscathed. She must have missed."
+
+            menu:
+                "Get away!":
+                    "Speeding ahead to avoid a counterattack, you put enough distance between you and the Interceptor to breath easy again."
+                    jump shiny_and_chrome_exit_ahead
+                "Retaliate!":
+                    "You turn your car to ram them back."
+                    "Just before impact, Chrome pulls another spear out of the Interceptor and thrusts it at you!"
+                    gamestate.actors['chrome'] "FOOL!"
+                    with hpunch
+                    "Another explosion shakes the road, and this time the spear hit its mark."
+                    "You crash into Shiny and Chrome, and both vehicles careen to the track wall."
+
+                    # TODO: Do heavy damage to both cars
+
+                    "After untangling the cars from each other, you both rejoin the race, though your car is worse for wear."
+                    $ gamestate.changeStanding('shinychrome', 2)
+                    $ gamestate.changeStanding('racer', 2)
+
+                    jump shiny_and_chrome_exit_behind
+                "DRIFT!":
+                    "You drift around a bend in the road, leaving Shiny and Chrome behind."
+                    jump shiny_and_chrome_exit_ahead
+        "DRIFT!":
+            "You drift into the oncoming attack."
+            "Chrome strikes with the spear, but your spoiler hits it mid lunge, snapping it in two!"
+            "The spear tip rolls under Shiny and Chrome's Interceptor and detonates."
+            with hpunch
+            "The explosion rocks Shiny and Chrome, spinning them to the track wall."
+
+            # TODO: Do heavy damage to Shiny and Chrome
+
+            "You drift away, completely unphrased."
+
+            $ gamestate.changeStanding('shinychrome', 2)
+
+            jump shiny_and_chrome_exit_ahead
+
+    # Should never hit this, but just in case
+    jump shiny_and_chrome_exit_ahead
+
+label shiny_and_chrome_speared:
+    "As your cars collide, Chrome drives the spear into your vehicle."
+    with hpunch
+    "It explodes!"
+
+    # TODO: Do heavy damage to player's car
+
+    "The impact and explosion sends your racer spinning to the track wall."
+    "Shiny and Chrome circle around past you to get a look before speeding down the track."
+
+    $ gamestate.changeStanding('racer', 2)
+
+    jump shiny_and_chrome_exit_behind
+
 label shiny_and_chrome_exit_ahead:
     $ pos_diff = gamestate.position_diff('shinychrome', 'racer')
     if pos_diff < 0:
         $ gamestate.changeStanding('racer', -1)
 
-    hide v8_interceptor with moveoutleft
+    hide v8_interceptor
+    hide chrome_sprite
+    with moveoutleft
+
     hide racer_sprite with moveoutright
 
 label shiny_and_chrome_exit_behind:
@@ -92,5 +193,8 @@ label shiny_and_chrome_exit_behind:
     if pos_diff > 0:
         $ gamestate.changeStanding('racer', 1)
 
-    hide v8_interceptor with moveoutright
+    hide v8_interceptor
+    hide chrome_sprite
+    with moveoutright
+
     hide racer_sprite with moveoutleft
