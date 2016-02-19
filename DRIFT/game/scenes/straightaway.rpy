@@ -3,7 +3,7 @@
 
 init 1 python:
     import store.gamestate as gamestate
-    gamestate.StraightawayEvent("straightaway")
+    classes.StraightawayEvent("straightaway")
 
 label straightaway:
     "On a straightaway."

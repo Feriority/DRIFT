@@ -3,7 +3,7 @@
 
 init 1 python:
     import store.gamestate as gamestate
-    gamestate.TurnEvent("turn")
+    classes.TurnEvent("turn")
 
 label turn:
     "On a turn."
