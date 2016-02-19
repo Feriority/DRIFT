@@ -150,6 +150,7 @@ label start:
     $ the_fucking_road.speed = 5.0
 
     call race
+    show text str(gamestate.standings)
 
     $ the_fucking_road.speed = 0.0
 

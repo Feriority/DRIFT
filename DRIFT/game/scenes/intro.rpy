@@ -96,13 +96,13 @@ label meet_cage:
     with moveinleft
     cage "Oh, a fan!  Here, let me sign you an autograph."
     racer "..."
-    cage "Surprised?  I know what it's like to meet someone you admire and have them be a complete jerk."
+    cage "I know what it's like to meet someone you admire and have them be a complete jerk."
     racer "..."
     cage "Why am I, Nicolas Cage, driving a motorcycle in this extremely dangerous race?  Good question."
-    cage "When I was eight, I would look at the cover of the 'Ghost Rider' comic book in my little home in Long Beach, California, and I couldn't get my head around how something that scary could also be good. To me it was my first philosophical awakening - 'How is this possible, this duality?'"
-    cage "I think it's no secret that I've tried to take chances in my career and also in my life, and I believe to not live in fear."
-    cage "One of the things that's interesting to me is I find things like caffeine and stunts actually relax me. When they're putting a bit of gel on my arm and lighting me on fire, or when I'm about to go into a high-speed car chase or rev a motorcycle up pretty fast, I find everything else around me slows down."
-    cage "I am not a demon. I am a lizard, a shark, a heat-seeking panther. I want to be Bob Denver on acid playing the accordion."
+    "Nicolas Cage (Real Quote)" "When I was eight, I would look at the cover of the 'Ghost Rider' comic book in my little home in Long Beach, California, and I couldn't get my head around how something that scary could also be good. To me it was my first philosophical awakening - 'How is this possible, this duality?'"
+    "Nicolas Cage (Real Quote)" "I think it's no secret that I've tried to take chances in my career and also in my life, and I believe to not live in fear."
+    "Nicolas Cage (No, seriously, he said these things)" "One of the things that's interesting to me is I find things like caffeine and stunts actually relax me. When they're putting a bit of gel on my arm and lighting me on fire, or when I'm about to go into a high-speed car chase or rev a motorcycle up pretty fast, I find everything else around me slows down."
+    "Nicolas Cage (And it wasn't even from a movie)" "I am not a demon. I am a lizard, a shark, a heat-seeking panther. I want to be Bob Denver on acid playing the accordion."
     "He's monologuing so intently he doesn't seem to know you're still there.  You should move on."
     hide bike
     hide cage_sprite
