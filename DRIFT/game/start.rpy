@@ -133,6 +133,8 @@ init python:
 
 image road_surface = RoadSurface(800,600)
 
+init:
+    define announcer = Character('Announcer')
 
 label start:
     show road_surface:
@@ -142,10 +144,13 @@ label start:
     $ the_fucking_road.reset()
 
     call start_intro
-    play music "music/race.mp3" fadeout 1.0 fadein 1.0
-    "3"
-    "2"
-    "1"
+    announcer "Racers, start your engines."
+    stop music fadeout 1.0
+    announcer "3..."
+    announcer "2..."
+    announcer "1..."
+    announcer "Aaaand they're off!"
+    play music "music/race.mp3"
 
     $ the_fucking_road.speed = 5.0
 
@@ -154,14 +159,14 @@ label start:
 
     $ the_fucking_road.speed = 0.0
 
-    "It's over."
+    announcer "It's over! The racers have crossed the finish line!"
     $ finalPos = gamestate.racers['racer'].getPosition() + 1
     $ worstPos = len(gamestate.standings)
     if finalPos == 1:
         "YOUR WINNER"
     else:
         $ winner = gamestate.standings[0]
-        "Announcer" "We have a winner!  It's [winner]!"
+        announcer "And we have a winner!  It's [winner]!"
         call expression 'winner_' + winner.key
         if finalPos == worstPos:
             "You came in last.  Nicolas Cage is disappointed in you."
