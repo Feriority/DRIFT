@@ -141,8 +141,7 @@ label start:
 
     $ the_fucking_road.reset()
 
-    "It was the day of the Race."
-    # TODO: call prologue
+    call start_intro
 
     "3"
     "2"
