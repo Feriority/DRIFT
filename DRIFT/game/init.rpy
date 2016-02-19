@@ -56,7 +56,7 @@ init python:
     classes.Racer(characterName='Tanaka')
     classes.Racer(characterName='Driver')
     classes.Racer(characterName='Cornelius Vandergraaf')
-    classes.Racer(characterName='main')
+    classes.Racer(characterName='Racer')
 
     for i in range(0, 5):
         gamestate.track.append('straightaway')
