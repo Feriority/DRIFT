@@ -142,7 +142,7 @@ label start:
     $ the_fucking_road.reset()
 
     call start_intro
-
+    play music "music/race.mp3" fadeout 1.0 fadein 1.0
     "3"
     "2"
     "1"
