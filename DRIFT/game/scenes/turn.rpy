@@ -31,7 +31,7 @@ label turn_1:
                 # TODO use racer and racer_ahead's damage to influence success
                 if success >= 0.50:
                     "The jerk in [racer_ahead.characterName]'s driving gives away their surprise as you cut inside them to pull ahead."
-                    # TODO: Decrease racer_ahead's disposition?
+                    $ racer_ahead.changeDisposition(-1)
                     $ gamestate.changeStanding('racer', -1)
 
                     jump turn_exit_ahead
@@ -51,7 +51,8 @@ label turn_1:
 
                 menu:
                     "Cut them off.":
-                        # TODO: Decrease racer_behind's disposition
+                        $ racer_behind.changeDisposition(-2)
+
                         # TODO: user racer and racer_behind's damage to influence success
                         if success >= 0.50:
                             "You turn to get in their way and block their advance."
@@ -71,13 +72,14 @@ label turn_1:
                             jump turn_exit_behind
                     "Let them go.":
                         "While holding your course, [racer_behind.characterName] drives right by."
-                        # TODO: Increase racer_behind's disposition
-                        $ gamestate.changePosition('racer', 1)
+
+                        $ racer_behind.changeDisposition(3)
+                        $ gamestate.changeStanding('racer', 1)
 
                         jump turn_exit_behind
                     "DRIFT!":
                         "You drift gracefully through the rest of the turn, while [racer_behind.characterName] backs off."
-                        # TODO: Increase racer_behind's disposition
+                        $ race_behind.changeDisposition(2)
 
                         jump turn_exit_ahead
         "DRIFT!":

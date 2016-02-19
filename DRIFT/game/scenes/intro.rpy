@@ -52,21 +52,26 @@ label meet_cherry:
     show cherry_sprite at left
     with moveinleft
     cherry "Hi!  I'm Cherry!"
+
     menu:
         "Nod.":
-            #TODO: Reduce cherry disposition a little
+            $ gamestate.racers['cherry'].changeDisposition(-1)
+
             jump meet_cherry_end
         "Salute.":
-            #TODO: Increase cherry disposition
+            $ gamestate.racers['cherry'].changeDisposition(2)
+
             cherry "There's no need for that.  Out there you are my subjects, but here we're all racers."
             cherry "I haven't seen you before.  Is this your first race?  Watch out for the bus driver."
             jump meet_cherry_end
         "Shrug.":
-            #TODO: Reduce cherry disposition moderately
+            $ gamestate.racers['cherry'].changeDisposition(-2)
+
             cherry "Cherry Carter?  The princess?  My face is on the money?"
             jump meet_cherry_end
         "DRIFT!":
-            #TODO: Reduce cherry disposition a lot.  She really doesn't like to be ignored.
+            $ gamestate.racers['cherry'].changeDisposition(-3)
+
             hide racer_sprite with moveoutright
             cherry "Ignoring my greeting?  I'm going to DESTROY that driver."
             hide gokart
@@ -109,13 +114,16 @@ label meet_tanaka:
     tanaka "A new racer?  I'm Tanaka.  Welcome to DRIFT.  Are you ready?"
     menu:
         "Nod.":
-            #TODO: +disposition
+            $ gamestate.racers['tanaka'].changeDisposition(1)
+
             tanaka "Good.  It's more fun to beat somebody at the top of their game."
         "Shake your head.":
-            #TODO: -disposition
+            $ gamestate.racers['tanaka'].changeDisposition(-1)
+
             tanaka "Then you'd better get ready fast.  The race is about to start."
         "DRIFT!":
-            #TODO: -disposition
+            $ gamestate.racers['tanaka'].changeDisposition(-1)
+
             hide racer_sprite with moveoutright
             tanaka "Hey, don't just ignore me!"
             hide prius
@@ -135,14 +143,17 @@ label meet_cornelius:
     cornelius "Ah, a new challenger!  This will be good fun!  I am Cornelius Vandergraaf, of course."
     menu:
         "Shake his hand.":
-            #TODO: +disposition
+            $ gamestate.racers['cornelius'].changeDisposition(2)
+
             cornelius "Let's have a good, clean race out there!"
             cornelius "Don't worry, if you come in second, I'll let you have the prize money.  It's just pennies anyway!  But I get the trophy."
         "Nod.":
-            #TODO: +disposition
+            $ gamestate.racers['cornelius'].changeDisposition(1)
+
             cornelius "Driver of few words, eh?  I like that!  If you need a job driving trains after I beat you, let's talk after the race!"
         "DRIFT!":
-            #TODO: -disposition
+            $ gamestate.racers['cornelius'].changeDisposition(-2)
+
             hide racer_sprite with moveoutright
             cornelius "How rude."
             hide electric
