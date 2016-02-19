@@ -5,6 +5,9 @@
 saves/
 log.txt
 lint.txt
+DRIFT/traceback.txt
+renpy-6.99.8-sdk/tutorial/
+renpy-6.99.8-sdk/the_question/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
