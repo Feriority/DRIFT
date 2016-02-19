@@ -18,8 +18,8 @@ label cage_bees:
         show racer_sprite at left with moveinleft
 
         "Nicolas Cage is ahead of you."
-        show cage_sprite at right
         show bike at right
+        show cage_sprite at right
         with moveinright
 
         menu:
@@ -28,8 +28,8 @@ label cage_bees:
             "Keep your distance.":
                 "Cage begins snaking back in forth, dodging invisible obstacles, and pulls away laughing."
                 cage "Ahahaha!"
-                hide cage_sprite
                 hide bike
+                hide cage_sprite
                 with moveoutright
                 hide racer_sprite with moveoutleft
                 return
@@ -41,8 +41,8 @@ label cage_bees:
         show racer_sprite at right with moveinright
 
         "Nicolas Cage begins approaching from behind."
-        show cage_sprite at left
         show bike at left
+        show cage_sprite at left
         with moveinleft
 
         "He's gaining ground quickly, despite... weaving back and forth,
@@ -66,8 +66,8 @@ label cage_bees:
             jump cage_bees_2
         "Speed past him.":
             "You leave Cage in your tracks and race forward."
-            hide cage_sprite
             hide bike
+            hide cage_sprite
             with moveoutleft
             hide racer_sprite with moveoutright
 
@@ -87,8 +87,8 @@ label cage_bees_2:
 
     # TODO: Do slight damage to Cage
 
-    hide cage_sprite
     hide bike
+    hide cage_sprite
     with moveoutleft
     hide racer_sprite with moveoutright
 
