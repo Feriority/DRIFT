@@ -13,10 +13,11 @@ label boat_drift:
     show racer at left with moveinleft
 
     "The road follows the curve of a small lake along the course.  Ahead, you can see a slope down to the water, where a short dock with a raft extends into the lake."
+    python:
+        #TODO: use damage to influence success chance?
+        success = renpy.random.random()
+
     menu:
-        python:
-            #TODO: use damage to influence success chance?
-            success = renpy.random.random()
         "Drive fast.":
             if success >= 0.70:
                 $ next_standing = racer_standing - 1
@@ -57,4 +58,4 @@ label boat_drift:
                     "You hit the brakes and the raft drifts across the lake, with you aboard.  You hit it pretty fast, and cutting through the lake saves you from the long route along its shore - you think you actually gained some time."
                     show racer at right with moveinleft
                     $ gamestate.changeStanding('racer', -1)
-        hide racer with moveoutright
+    hide racer with moveoutright
